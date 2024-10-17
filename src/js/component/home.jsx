@@ -1,26 +1,38 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import SecondsCounter from "./SecondsCounter";
 
 //create your first component
-const Home = () => {
+function eachSeconds(counter,place){
+	return Math.floor(counter/place)%10;
+}
+const Home = (props) => {
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="row">
+			<div className="col-2"></div>
+			<div className="col-8">
+				<SecondsCounter 
+				sixthSeconds = {eachSeconds(props.counter,100000)}
+				fifthSeconds = {eachSeconds(props.counter,10000)}
+				fourthSeconds = {eachSeconds(props.counter,1000)}
+				thirdSeconds = {eachSeconds(props.counter,100)}
+				secondSeconds = {eachSeconds(props.counter,10)}
+				firstSeconds = {eachSeconds(props.counter,1)} 
+			   />
+			</div>
+			<div className="col-2"></div>
 		</div>
 	);
 };
+
+Home.propTypes ={
+	sixthSeconds : PropTypes.number,
+	fifthSeconds : PropTypes.number,
+	fourthSeconds : PropTypes.number,
+	thirdthSeconds : PropTypes.number,
+	secondSeconds : PropTypes.number,
+	firstSeconds : PropTypes.number
+}
 
 export default Home;
