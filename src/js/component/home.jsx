@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import SecondsCounter from "./SecondsCounter";
 
@@ -7,6 +6,7 @@ import SecondsCounter from "./SecondsCounter";
 function eachSeconds(counter,place){
 	return Math.floor(counter/place)%10;
 }
+
 const Home = (props) => {
 	return (
 		<div className="row">
@@ -19,20 +19,13 @@ const Home = (props) => {
 				thirdSeconds = {eachSeconds(props.counter,100)}
 				secondSeconds = {eachSeconds(props.counter,10)}
 				firstSeconds = {eachSeconds(props.counter,1)} 
+				myButton = {props.myButton}
+				myInput = {props.myInput}
 			   />
 			</div>
 			<div className="col-2"></div>
 		</div>
 	);
 };
-
-Home.propTypes ={
-	sixthSeconds : PropTypes.number,
-	fifthSeconds : PropTypes.number,
-	fourthSeconds : PropTypes.number,
-	thirdthSeconds : PropTypes.number,
-	secondSeconds : PropTypes.number,
-	firstSeconds : PropTypes.number
-}
 
 export default Home;

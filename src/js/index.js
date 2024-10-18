@@ -10,8 +10,23 @@ import Home from "./component/home.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById('app'));
 
+let value="";
+
+function handleChange(e){
+    value+=e.target.value;
+}
+const handleClick =() =>{
+    let countDown = parseInt(value);
+    clearInterval(myInterval);
+    setInterval(function(){
+        root.render(<Home counter={countDown} myButton = {handleClick} myInput= {handleChange}/>);
+        console.log(value);
+        countDown--;
+    },1000)
+}
+
 let count=0;
-setInterval(function(){
+let myInterval=setInterval(function(){
     root.render(<Home counter={count}/>);
     count++;
 },1000);
