@@ -21,10 +21,25 @@ const SecondsCounter = (props) =>{
             </div>
 
             <div className="d-flex mt-3">
-                <input onChange={props.myInput} type="text" className="form-control myInput" placeholder="Countdown" aria-label="Username" aria-describedby="basic-addon1"/>
-                <button onClick={props.myButton} type="button" className="btn btn-primary">Start Countdown</button>
-                
+                <input id="myInput" type="text" className="form-control" placeholder="Countdown" aria-label="Username" aria-describedby="basic-addon1"/>
+                <button onClick={()=>{props.myButton()}} type="button" className="btn btn-primary">Start Countdown</button>               
             </div>
+
+            <div className="d-flex mt-3">
+                <button onClick={()=>{props.buttonStart()}} type="button" className="btn btn-primary">Resume</button>
+                <button onClick={()=>{props.buttonStop()}} type="button" className="btn btn-danger">Stop</button>   
+                <button onClick={()=>{props.buttonRestart()}} type="button" className="btn btn-warning">Restart</button>              
+            </div>
+
+            <div className="d-flex mt-3">
+                <input id="alarm" type="text" className="form-control" placeholder="Alarm" aria-label="Username" aria-describedby="basic-addon1"/>          
+            </div>
+
+            <div id="alert" className="alert invisible alert-warning alert-dismissible fade show" role="alert">
+                <strong>It's time</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
         </>
     );
 }
@@ -35,8 +50,7 @@ SecondsCounter.propTypes ={
 	fourthSeconds : PropTypes.number,
 	thirdthSeconds : PropTypes.number,
 	secondSeconds : PropTypes.number,
-	firstSeconds : PropTypes.number,
-    myButton : PropTypes.object
+	firstSeconds : PropTypes.number
 }
 
 export default SecondsCounter;

@@ -20,7 +20,9 @@ const Home = (props) => {
 				secondSeconds = {eachSeconds(props.counter,10)}
 				firstSeconds = {eachSeconds(props.counter,1)} 
 				myButton = {props.myButton}
-				myInput = {props.myInput}
+				buttonStart = {props.buttonStart}
+				buttonStop = {props.buttonStop}
+				buttonRestart = {props.buttonRestart}
 			   />
 			</div>
 			<div className="col-2"></div>
